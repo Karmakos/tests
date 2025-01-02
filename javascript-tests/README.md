@@ -1,4 +1,4 @@
-vaScript Tests
+JavaScript Tests
 
 This folder contains a series of tests and experiments to understand and explore JavaScript concepts, with a focus on ES6+ features and object-oriented programming.
 
