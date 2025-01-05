@@ -10,10 +10,23 @@ class Stack{
        _items.get(this).push(item)
     }
     pop(){
-       _items.get(this).pop()
+        const items = _items.get(this)
+        if(items.length > 0 )
+            return items.pop()
+        throw new Error("Stack is Empty");
+        
+    }
+    peek(){
+        const items = _items.get(this);
+        if(items.length - 1 > 0)
+            return items[items.length - 1];
+        throw new Error ("Stack is Empty")
+
+    }
+    get count(){
+        return _items.get(this).length;
     }
     
 }
 
 const stack = new Stack();
-stack.push()
