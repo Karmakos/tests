@@ -1,25 +1,27 @@
+const _text = new WeakMap();
+
 
 class Palindrome{
     constructor(text){
-        this.text = text;
-        Object.defineProperty(this, 'text', {
-            set: function(value){
-                text = value;
-            }
-        })
+        _text.set(this, text);
+
+    }
+
+    set checkText(value){
+        _text.set(this, value);       
+    }
+    get checkText(){
+       return _text.get(this);
     }
 
     get isPalindrome(){
-        const letters = this.text.split("");
-        const reversed = letters.reverse();
-        try {
-            if(letters === reversed)
-                return(`${text} + is a palindrome!`);
-            return(`${text} + is not a palindrome!`);
-        } catch (error) {
-            return(error);          
-            
-        }
+        const text = _text.get(this)
+        const letters = text.toLowerCase();
+        const reversed = [...letters].reverse().join('');
+        return (letters === reversed)
+        ? (`${text} is a palindrome!`)
+        : (`${text} is not a palindrome!`);
+        
     }
         
 }
